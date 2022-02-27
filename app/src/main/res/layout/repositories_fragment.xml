@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background_main">
+
+    <data>
+
+        <variable
+            name="repositoriesViewModel"
+            type="com.makoval.githubapp.repositories.RepositoriesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.makoval.githubapp.repositories.RepositoriesViewModel">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/repositories_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:listData="@{repositoriesViewModel.repositories}"
+            app:spanCount="1"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_repository" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

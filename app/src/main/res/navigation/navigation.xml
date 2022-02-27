@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.makoval.githubapp.login.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_login_to_repositories"
+            app:destination="@id/repositoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repositoriesFragment"
+        android:name="com.makoval.githubapp.repositories.RepositoriesFragment"
+        android:label="repositories_fragment"
+        tools:layout="@layout/repositories_fragment">
+        <argument
+            android:name="token"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_repositories_to_detail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.makoval.githubapp.detail.DetailFragment"
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment">
+        <argument
+            android:name="repositories"
+            app:argType="com.makoval.githubapp.network.Repositories" />
+        <argument
+            android:name="token"
+            app:argType="string" />
+    </fragment>
+</navigation>

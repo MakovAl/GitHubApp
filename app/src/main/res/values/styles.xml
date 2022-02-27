@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="android:windowBackground">@color/owner_black</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="buttonStyle">@drawable/button</item>
+    </style>
+
+    <style name="WelcomeTheme" parent="Theme.AppCompat.Light">
+        <item name="android:windowBackground">@drawable/background_welcome</item>
+    </style>
+</resources>

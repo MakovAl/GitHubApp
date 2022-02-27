@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModelDetail"
+            type="com.makoval.githubapp.detail.DetailViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.makoval.githubapp.detail.DetailViewModel">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/linkLinear"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_baseline_link_24" />
+
+                <TextView
+                    android:id="@+id/link_repository"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="6"
+                    android:autoLink="web"
+                    android:autoSizeMaxTextSize="28sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:linksClickable="true"
+                    android:scaleType="centerCrop"
+                    android:text="https://github.com/MakovAl"
+                    android:textColorLink="@color/blue"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:linkRepository="@{viewModelDetail.detailRepositories.html_url.toString()}"
+                    tools:targetApi="o" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/licenseLinear"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linkLinear">
+
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_baseline_balance_24" />
+
+                <TextView
+                    android:id="@+id/license_text"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="4"
+                    android:autoSizeMaxTextSize="28sp"
+                    android:autoSizeMinTextSize="18sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:scaleType="centerCrop"
+                    android:text="@string/license"
+                    app:layout_constraintStart_toStartOf="@id/link_repository"
+                    app:layout_constraintTop_toBottomOf="@id/link_repository"
+                    tools:targetApi="o"
+                    tools:text="License" />
+
+                <TextView
+                    android:id="@+id/license_type"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:autoSizeMaxTextSize="28sp"
+                    android:autoSizeMinTextSize="18sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:scaleType="centerCrop"
+                    android:text="@string/no"
+                    app:detailLicense="@{viewModelDetail.detailRepositories.license.name.toString()}"
+                    app:layout_constraintEnd_toEndOf="@id/link_repository"
+                    app:layout_constraintTop_toBottomOf="@id/link_repository"
+                    tools:targetApi="o" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/repositoriesLinear"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/licenseLinear">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_baseline_star_24" />
+
+                <TextView
+                    android:id="@+id/stars_value"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:autoSizeMaxTextSize="28sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:scaleType="centerCrop"
+                    android:text="@string/_0"
+                    android:textColor="@color/star"
+                    app:detailStargazers="@{viewModelDetail.detailRepositories.stargazers_count}"
+                    tools:targetApi="o" />
+
+
+                <TextView
+                    android:id="@+id/stars_text"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:autoSizeMaxTextSize="28sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:scaleType="centerCrop"
+                    android:text="@string/stars"
+                    tools:targetApi="o" />
+
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_git_fork_01" />
+
+                <TextView
+                    android:id="@+id/forks_value"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:autoSizeMaxTextSize="28sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:scaleType="centerCrop"
+                    android:text="@string/_0"
+                    android:textColor="@color/green_fork"
+                    app:detailForks="@{viewModelDetail.detailRepositories.forks_count}"
+                    tools:targetApi="o" />
+
+                <TextView
+                    android:id="@+id/forks_text"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:autoSizeMaxTextSize="28sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:scaleType="centerCrop"
+                    android:text="@string/forks"
+                    tools:targetApi="o" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_baseline_visibility_24" />
+
+                <TextView
+                    android:id="@+id/watchers_value"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:autoSizeMaxTextSize="28sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:scaleType="centerCrop"
+                    android:text="@string/_0"
+                    android:textColor="@color/visibility"
+                    app:detailWatchers="@{viewModelDetail.detailRepositories.watchers_count}"
+                    tools:targetApi="o" />
+
+                <TextView
+                    android:id="@+id/watchers_text"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="4"
+                    android:autoSizeMaxTextSize="28sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:scaleType="centerCrop"
+                    android:text="@string/watchers"
+                    tools:targetApi="o" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/readme_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:content="@{viewModelDetail.contentReadme.content}"
+                app:layout_constraintTop_toBottomOf="@id/repositoriesLinear"
+                tools:text="README.md" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

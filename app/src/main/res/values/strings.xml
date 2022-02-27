@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GitHubApp</string>
+    <string name="personal_access_token">Personal access token</string>
+    <string name="error">error</string>
+    <string name="watchers">watchers</string>
+    <string name="_0">0</string>
+    <string name="forks">forks</string>
+    <string name="stars">stars</string>
+    <string name="no">No</string>
+    <string name="license">License</string>
+    <string name="sign_in">SIGN IN</string>
+</resources>
